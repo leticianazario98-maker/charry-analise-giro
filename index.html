@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charry | Análise de Giro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">CHARRY • E-COMMERCE</p>
+        <h1>Análise de Giro por Coleção</h1>
+        <p class="subtitle">Venda + estoque atual + pedido original, processados localmente no navegador.</p>
+      </div>
+      <div class="privacy">🔒 Arquivos não são enviados a servidor</div>
+    </header>
+
+    <section class="card">
+      <h2>1. Período da análise</h2>
+      <div class="grid-3">
+        <label>Data inicial da venda<input id="dateStart" type="date" /></label>
+        <label>Data final da venda<input id="dateEnd" type="date" /></label>
+        <label>Data do estoque<input id="stockDate" type="date" /></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Arquivos</h2>
+      <div class="upload-grid">
+        <label class="upload-box"><span>Venda</span><small>.xlsx</small><input id="salesFile" type="file" accept=".xlsx,.xls" /></label>
+        <label class="upload-box"><span>Estoque atual</span><small>.csv</small><input id="stockFile" type="file" accept=".csv" /></label>
+        <label class="upload-box"><span>Pedido original do e-commerce</span><small>.csv</small><input id="orderFile" type="file" accept=".csv" /></label>
+      </div>
+      <button id="analyzeBtn" class="primary">Ler e validar arquivos</button>
+    </section>
+
+    <section id="validationCard" class="card hidden">
+      <div class="section-head"><h2>3. Validação</h2><span id="statusBadge" class="badge">Aguardando</span></div>
+      <div id="validationList" class="validation-list"></div>
+    </section>
+
+    <section id="collectionsCard" class="card hidden">
+      <div class="section-head"><h2>4. Coleções encontradas</h2><button id="toggleAllBtn" class="ghost">Selecionar todas</button></div>
+      <p class="hint">A coleção é identificada pelos 3 primeiros números da referência: 1 = Inverno, 3 = Verão, 4 = Alto Verão; os dois números seguintes são o ano.</p>
+      <div id="collectionsList" class="collections"></div>
+      <button id="generateBtn" class="primary">Gerar Excel completo</button>
+    </section>
+
+    <section id="summaryCard" class="card hidden">
+      <h2>Prévia da análise</h2>
+      <div id="kpis" class="kpis"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
